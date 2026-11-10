@@ -274,11 +274,6 @@
       <div class="hero-main-grid">
         <!-- Left: Editorial Headline & Graciano Doodles -->
         <div class="hero-left">
-          <div class="hero-status-tag">
-            <span class="status-indicator-dot"></span>
-            <span class="font-mono-tag" id="live-cafe-status">OPEN TODAY • 7:30 AM – 8:30 PM</span>
-          </div>
-
           <h1 class="hero-heading">
             escape the chaos.<br>
             find your 
@@ -351,7 +346,6 @@
       <div class="ticker-track">
         <div class="ticker-item">SPECIALTY BREWS <span class="ticker-dot"></span></div>
         <div class="ticker-item">FLUFFY PASTRIES <span class="ticker-dot"></span></div>
-        <div class="ticker-item">THE GOOD STUFF <span class="smiley">;)</span> <span class="ticker-dot"></span></div>
         <div class="ticker-item">WOOD-FIRED CRUSTS <span class="ticker-dot"></span></div>
         <div class="ticker-item">UJI CEREMONIAL MATCHA <span class="ticker-dot"></span></div>
         <div class="ticker-item">CAMPUS SANCTUARY <span class="ticker-dot"></span></div>
@@ -359,7 +353,6 @@
         <!-- Duplicated items for seamless infinite scroll -->
         <div class="ticker-item">SPECIALTY BREWS <span class="ticker-dot"></span></div>
         <div class="ticker-item">FLUFFY PASTRIES <span class="ticker-dot"></span></div>
-        <div class="ticker-item">THE GOOD STUFF <span class="smiley">;)</span> <span class="ticker-dot"></span></div>
         <div class="ticker-item">WOOD-FIRED CRUSTS <span class="ticker-dot"></span></div>
         <div class="ticker-item">UJI CEREMONIAL MATCHA <span class="ticker-dot"></span></div>
         <div class="ticker-item">CAMPUS SANCTUARY <span class="ticker-dot"></span></div>
@@ -372,17 +365,6 @@
          4. OFFERINGS CATALOG (GRACIANO-STYLE NUMBERED LIST)
          ========================================================================== -->
     <section class="offerings-section" id="menu">
-      <div class="section-header-tag">
-        <span class="font-mono-tag" style="color: var(--color-rust);">[ 01 // TASTING INDEX ]</span>
-        <!-- Doodle coffee cup -->
-        <svg class="doodle-svg" width="28" height="28" viewBox="0 0 32 32" fill="none">
-          <path d="M 6,12 L 22,12 C 22,22 18,26 14,26 C 10,26 6,22 6,12 Z" stroke="#384628" stroke-width="2" />
-          <path d="M 22,14 C 26,14 28,16 28,19 C 28,22 25,23 22,23" stroke="#384628" stroke-width="2" stroke-linecap="round" />
-          <path d="M 10,6 C 10,9 12,9 12,11" stroke="#C15C3D" stroke-width="1.8" stroke-linecap="round" />
-          <path d="M 16,5 C 16,8 18,8 18,10" stroke="#C15C3D" stroke-width="1.8" stroke-linecap="round" />
-        </svg>
-      </div>
-
       <h2 class="section-title">
         handcrafted with patience.<br>
         <span class="font-editorial-italic" style="color: var(--color-olive);">served with genuine warmth.</span>
@@ -476,8 +458,7 @@
       <div class="space-container">
         <div class="space-header">
           <div>
-            <span class="font-mono-tag" style="color: var(--color-olive);">[ 02 // SANCTUARY ARCHITECTURE ]</span>
-            <h2 class="section-title" style="margin-top: 0.5rem; margin-bottom: 0;">
+            <h2 class="section-title" style="margin-top: 0; margin-bottom: 0;">
               botanical refuge.<br>
               <span class="font-editorial-italic" style="color: var(--color-rust);">bathed in ambient daylight.</span>
             </h2>
@@ -578,7 +559,6 @@
     <section class="community-section" id="community">
       <div class="community-header-box">
         <div>
-          <span class="font-mono-tag" style="color: var(--color-amber);">[ 03 // THE CAMPUS PULSE ]</span>
           <h2 class="community-title">
             the extended living room of IIT (ISM) Dhanbad.
           </h2>
@@ -659,7 +639,6 @@
     <div class="footer-top-grid">
       <!-- Left: Giant Typography & Email Box -->
       <div>
-        <span class="font-mono-tag" style="color: var(--color-amber);">[ 04 // VISIT US ]</span>
         <h2 class="footer-giant-title">
           SAY HI.<br>
           <span class="title-accent">DROP BY.</span>
@@ -744,8 +723,7 @@
     <div class="modal-box">
       <button class="modal-close-btn" id="close-modal-btn" aria-label="Close modal">×</button>
       
-      <span class="font-mono-tag" style="color: var(--color-rust);">[ RESERVATIONS ]</span>
-      <h3 style="font-size: 2rem; margin: 0.5rem 0 1rem 0; color: var(--color-espresso);">
+      <h3 style="font-size: 2rem; margin: 0 0 1rem 0; color: var(--color-espresso);">
         save your spot.
       </h3>
       <p style="font-size: 0.95rem; color: rgba(29, 27, 24, 0.75); margin-bottom: 1.75rem;">
@@ -1246,32 +1224,6 @@
         backToTopBtn.addEventListener("click", () => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
-      }
-
-
-      // ========================================================================
-      // 8. DYNAMIC OPERATING HOURS STATUS
-      // ========================================================================
-      const statusElement = document.getElementById("live-cafe-status");
-      const now = new Date();
-      const currentDay = now.getDay(); // 0 is Sunday
-      const currentHour = now.getHours();
-      const currentMinute = now.getMinutes();
-      const currentTimeVal = currentHour + currentMinute / 60;
-
-      let isOpen = false;
-      if (currentDay === 0) { // Sunday 2:00 PM - 8:30 PM (14.0 - 20.5)
-        isOpen = (currentTimeVal >= 14.0 && currentTimeVal <= 20.5);
-      } else { // Mon-Sat 7:30 AM - 8:30 PM (7.5 - 20.5)
-        isOpen = (currentTimeVal >= 7.5 && currentTimeVal <= 20.5);
-      }
-
-      if (statusElement) {
-        if (isOpen) {
-          statusElement.innerHTML = `OPEN NOW • FRESH BATCH OUT OF THE OVEN`;
-        } else {
-          statusElement.innerHTML = `CLOSED FOR THE NIGHT • OPENS 7:30 AM`;
-        }
       }
     });
   </script>
